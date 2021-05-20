@@ -87,3 +87,19 @@ console.log(gsymbol1 === gsymbol2); // true
 //console.log(`value : ${symbol1}, type : ${typeof symbol1}`);
 //symbol은 출력할때 반드시 .description 으로 string 으로 변환해서 출력하여야 한다.
 console.log(`value : ${symbol1.description}, type : ${typeof symbol1}`);
+
+//objet, real-life object, data structure
+const ellie = {name : 'ellie', age : 20};
+ellie.age = 21;
+console.log(ellie);
+
+//5. Dynamic typing : dynimically type lang ==> typescript(자바스크립트의 타입의 가변성때문에 타입스크립트를 사용한다.)
+let text = 'hello';
+console.log(text.charAt(0)); //h
+console.log(`value: ${text}, type : ${typeof text}`);
+text = 1;
+console.log(`value: ${text}, type : ${typeof text}`);
+text = '7' + 5;
+console.log(`value: ${text}, type : ${typeof text}`);
+text = '8' / '2';
+console.log(`value: ${text}, type : ${typeof text}`);
