@@ -3,7 +3,7 @@
 // use this for Vanila JS
 'use strict';
 
-// 2. Variabel(변수)
+// 2. Variabel(변수) ==> read & write
 // let(added in ES6) ==> var(ES5 이전) // 인터넷 익스플로러에서 지원X
 // mutable data type : 값이 변하는 데이터 타입.
 let globalName = 'global name';
@@ -26,16 +26,22 @@ age = 4;
 console.log(age);
 var age;
 
-// 3.Constant(상수)
+// 3.Constant(상수) ==> only read
 // favor immutable data type always for a few reasons
 // - security : 보안상의 이유
 // - thread safety : thread가 동시에 돌아가면서 어플리케이션이 안정적으로 돌아가도록 도와준다.
 // - reduce human mistakes
+// 값이 바뀌지 않는다면 let 대신 const를 사용해서 작성한다.
 const daysInWeek = 7;
 const maxNumber = 5;
 
+//Note!
+//imutable data type : primitive type , frozen objects(object.freeze();)
+//mutable data type : all objects by default are mutable in js
+
 // 4.Variable type
-// primitive, single item : number, string, boolean, null, undefiend, symbol, object, box container
+// primitive, single item : number, string, boolean, null, undefiend, symbol ==> primitive타입의 경우 value가 메모리에 저장
+//object, box container ==> object타입의 경우 레퍼런스가 메모리에 저장
 //function, first-class function(function도 다른 데이터 타입처럼 변수로 선언이 가능하다!)
 //let a: number = 12;(타입스크립트에서는 변수의 type을 지정해주어야한다.)
 //C언어나 java에서는 데이터의 양에따라 타입의 종류가 많다.(short,long,int / float, double 등등...)
