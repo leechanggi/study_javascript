@@ -34,5 +34,3 @@ const postdecrement = counter--;
 // postdecrement = counter;
 // counter = counter - 1;
 console.log(`postdecrement : ${predecrement}, counter : ${counter}`)
-
-//
