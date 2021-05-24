@@ -1,0 +1,5 @@
+/* style */
+body{background-color: #000; /*overflow: hidden;*/ position: relative;}
+div.box{width: 250px; height: 250px; background: blanchedalmond; margin-bottom: 4px; border-radius: 4px;}
+div.box.special{background: lightsalmon;}
+aside{position: fixed; top: 20px; right: 20px;}
