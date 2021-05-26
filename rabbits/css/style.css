@@ -1,0 +1,7 @@
+/* style */
+body{background-color: #000;}
+.btnFind{display: block; width: 160px; height: 32px; background: #FF593C; color: #fff; border: none; margin: 120px auto 0; font-size: 18px; cursor: pointer;}
+.list-wrap{display: block; width: 100%;}
+li{display: block; margin: 20px auto;}
+.carrot{width: 184px; height: 250px; background: url(../img/carrot.png) no-repeat 50% 50%; background-size: cover;}
+.rabbit{width: 212px; height: 249px; background: url(../img/rabbit.png) no-repeat 50% 50%; background-size: cover;}

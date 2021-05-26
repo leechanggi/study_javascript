@@ -1,0 +1,6 @@
+body{position: relative; width: 100vw; height: 100vh; background: #000;}
+div.target{position: fixed; top: 0; left: 0; width: 120px; height: 120px;}
+div.target img{position: relative; display: block; width: 100%; height: 100%;}
+div.target::before{position: absolute; content: ''; width: 1000vw; height: 1px; background: #fff; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);}
+div.target::after{position: absolute; content: ''; width: 1px; height: 1000vh; background: #fff; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);}
+span.targetText{position: absolute; display: block; font-size: 12px; color: #fff; top: 90px; left: 90px; width: 120px;}

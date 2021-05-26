@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html {
+        padding: 0px;
+        margin: 0px;
+      }
+
+      body {
+        background-color: black;
+        text-align: center;
+      }
+      section {
+        width: 50%;
+        margin: 50px auto;
+        background-color: brown;
+        border-radius: 20px;
+        padding: 20px;
+      }
+      img {
+        z-index: 100;
+        will-change: opacity;
+      }
+      h1,
+      h3,
+      span {
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <img src="img/people.png" alt="people" />
+      <img src="img/avatar.png" alt="avatar" />
+      <h1 id="brand">Dream Coding</h1>
+      <h3>Don't forget to code your dream</h3>
+    </section>
+    <span>Hello World!</span>
+    <script>
+      const image = document.querySelector('img[src = "img/avatar.png"]');
+      const imageAll = document.querySelectorAll('img');
+      // querySelectorAll : 문서 안의 선택한 element를 전부 불러온다.
+      console.log(image);
+      console.log(imageAll);
+
+      const section = document.querySelector('section');
+      const h2 = document.createElement('h2');
+      h2.setAttribute('class','title'); // <h2 class="title"></h2>
+      h2.textContent = 'This is a title' // <h2 class="title">This is a title</h2>
+      section.appendChild(h2);
+      //append 도 사용할수 있지만 익스플로러에서는 사용하지 못한다. 기본으로 가장 끝에 배치된다.
+      const h3 = document.querySelector('h3');
+      section.insertBefore(h2, h3);
+      // insertBefore(새로추가할 node, 참고할 node) : 참고 node 이전에 추가할 node가 들어오게 된다.
+      
+      section.removeChild(h2);
+
+
+      // section.innerHTML = `
+      //   <img src="img/avatar.png" alt="avatar" />
+      //   <h1 id="brand">Dream Coding</h1>
+      // `;
+      // innerHTML은 일부분을 수정할때는 사용되지 않는다.
+      
+    </script>
+  </body>
+</html>

@@ -12,6 +12,7 @@ special.addEventListener('click', event => {
     console.log(`client : ${event.clientX}, ${event.clientY}`);
     console.log(`page : ${event.pageX}, ${event.pageY}`);
 });
+
 const scrollBy = document.querySelector('.scroll-by');
 const scrollTo = document.querySelector('.scroll-to');
 const scrollInto = document.querySelector('.scroll-into');
