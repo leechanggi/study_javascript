@@ -1,28 +1,40 @@
-'use strict';
-const input = document.querySelector('#textInput');
-const shopListWrap = document.querySelector('.shopList-wrap');
-let cnt = 0;
-function listAddFnc() {
-    const shopListadd = document.createElement('li');
-    let inputVal = input.value;
-    shopListadd.setAttribute('class','shopList');
-    shopListWrap.appendChild(shopListadd);
-    shopListadd.innerHTML = `<span class="listTitle">${inputVal = input.value}</span>
-    <span class="listDel">
-        <button class="btnDel ${cnt}" type="button" onclick="listDelFnc()"></button>
-    </span>`;
+const items = document.querySelector('.items');
+const input = document.querySelector('.footer__input');
+const addBtn = document.querySelector('.footer__button');
+function onAdd() {
+    // 1. 사용자가 입력한 텍스트를 받아옴.
+    const text = input.value;
+    console.log(text);
+    // 2. 새로운 아이템을 만듦. (텍스트 + 삭제 버튼)
+    const item = createItem(text);
+    // 3. items 컨테이너 안에 새로만든 아이템을 추가한다.
+    items.appendChild(item);
+    // 4. 인풋을 초기화 한다.
     input.value = '';
-    cnt ++;
+    input.focus();
+};
+function createItem(text) {
+    const itemRow = document.createElement('li');
+    itemRow.setAttribute('class', 'item__row');
+    const item = document.createElement('div');
+    item.setAttribute('class', 'item');
+    const name = document.createElement('span');
+    name.setAttribute('class', 'item__name');
+    name.innerText = text;
+    const deleteBtn = document.createElement('button');
+    deleteBtn.setAttribute('class', 'item__delete');
+    deleteBtn.innerHTML = `<i class="fas fa-trash-alt"></i>`;
+    deleteBtn.addEventListener('click', () => {
+        items.removeChild(itemRow);
+    });
+    const itemDivider = document.createElement('div');
+    itemDivider.setAttribute('class', 'item__divider');
+    item.appendChild(name);
+    item.appendChild(deleteBtn);
+    itemRow.appendChild(item);
+    itemRow.appendChild(itemDivider);
+    return itemRow;
 }
-function listDelFnc() {
-    let delBtn = document.getElementsByClassName('btnDel');
-    console.log(delBtn);
-}
-input.addEventListener('keyup', (e)=> {
-    if(e.keyCode === 13){
-        listAddFnc();
-    } else{
-        return false;
-    }
-    e.preventDefault();
+addBtn.addEventListener('click', () => {
+    onAdd();
 });
