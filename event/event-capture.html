@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .outer {
+        width: 500px;
+        height: 500px;
+        background-color: yellow;
+      }
+
+      .middle {
+        width: 50%;
+        height: 50%;
+        margin: auto;
+        background-color: thistle;
+        transform: translateY(50%);
+      }
+
+      button {
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="outer">
+      <div class="middle">
+        <button>Click Me</button>
+      </div>
+    </div>
+    <script>
+      const outer = document.querySelector('.outer');
+      const middle = document.querySelector('.middle');
+      const button = document.querySelector('button');
+      button.addEventListener('click', event => {
+        console.log(`button1 ${event.currentTarget}, ${event.target}`);
+        // event.stopPropagation(); 
+        // 캡쳐와 버블링을 막기 위해 사용. 아래처럼 사용도 가능하다.
+      });
+      button.addEventListener('click', event => {
+        console.log(`button2 ${event.currentTarget}, ${event.target}`);
+        // event.stopImmediatePropagation();
+        // button2 까지 실행되고 stop.
+        // 하지만, stopPropagation() 과 stopImmediatePropagation()은 사용하지 않는것을 권장한다.
+        // 협업에 용의하지 않고, 다른 기능을 수행하는 것을 막기 때문이다.
+      });
+      outer.addEventListener('click', event => {
+        if (event.target !== event.currentTarget) {
+          return;
+        }
+        // 위와 같은 이유로 아래와 같이 조건식을 사용해 target을 명확히 지정하는 것을 권장한다.
+        console.log(`outer: ${event.currentTarget}, ${event.target}`);
+      });
+      middle.addEventListener('click', event => {
+        if (event.target !== event.currentTarget) {
+          return;
+        }
+        console.log(`middle ${event.currentTarget}, ${event.target}`);
+      });
+    </script>
+  </body>
+</html>
