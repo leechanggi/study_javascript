@@ -1,0 +1,14 @@
+body{position: relative; width: 100vw; height: 100vh; overflow: hidden; background: url(../carrot/img/background.png) no-repeat 50% 50%; background-size: cover;}
+div.btnSection{margin: 0 auto; text-align: center;}
+div.btnSection button{width: 50px; height: 50px; border-radius: 7px; background-color: #F0D4A2; border: 3px solid #000; cursor: pointer; font-size: 18px; margin: 10px 0;}
+#stopBtn{display: none;}
+div.timerSection{text-align: center;}
+#timer{display: inline-block; width: 160px; height: 50px; line-height: 47px; background-color: #fff; border-radius: 7px; text-align: center; font-size: 36px; border: none; box-shadow: 0 0 0 3px #000 inset; margin-bottom: 10px;}
+div.carrotNumSection{text-align: center;}
+#carrotNum{display: inline-block; width: 70px; height: 70px; line-height: 67px; border-radius: 50%; background-color: #EA886B; color: #fff; border: none; font-size: 36px; box-shadow: 0 0 0 3px #000 inset;}
+div.ground{position: fixed; width: 100vw; height: 50vh; left: 0; bottom: 0;}
+.carrot{display: inline-block; position: absolute; width: 80px; height: 80px; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%); background: url(../carrot/img/carrot.png)no-repeat 50% 50%; background-size: cover; cursor: pointer;}
+.bug{display: inline-block; position: absolute; width: 50px; height: 50px; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);  background: url(../carrot/img/bug.png)no-repeat 50% 50%; background-size: cover; z-index: 1; cursor: pointer;}
+#dim-screen{display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.7);}
+#dim-screen span{position: absolute; display: inline-block; color: #fff; font-size: 72px; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);}
+#dim-screen button{position: absolute; display: inline-block; top: 40%; left: 50%; transform: translateX(-50%) translateY(-50%); font-size: 58px; color: #fff; background-color: transparent; border:none; cursor: pointer;}
