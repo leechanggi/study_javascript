@@ -3,7 +3,7 @@
 const playBtn = document.querySelector('#playBtn');
 const stopBtn = document.querySelector('#stopBtn');
 const timer = document.querySelector('#timer');
-let time = 2;
+let time = 5;
 let min = "";
 let sec = "";
 let isPause = false;
@@ -40,7 +40,7 @@ function playBtnClickFnc() {
     isPause = false;
     timerSel = setInterval(intervalFnc, 1000);
     playBtn.setAttribute('style', 'display: none');
-    stopBtn.setAttribute('style', 'display: inline-block')
+    stopBtn.setAttribute('style', 'display: inline-block');
     gameFnc();
 };
 function stopBtnClickFnc() {
@@ -53,10 +53,13 @@ playBtn.addEventListener('click', playBtnClickFnc);
 stopBtn.addEventListener('click', stopBtnClickFnc);
 // gameFnc.
 function gameFnc() {
+    let carrotNum = 10;
+    let carrot = document.getElementsByClassName('carrot');
     const bug = document.querySelector('.bug');
     const bugNum = 5;
     const ground = document.querySelector(".ground");
-    let carrotNum = document.querySelector('#carrotNum').textContent;
+    document.querySelectorAll('.carrot').forEach(e => e.parentNode.removeChild(e));
+    document.querySelectorAll('.bug').forEach(e => e.parentNode.removeChild(e));
     let i;
     for (i = 0; i < carrotNum; i++) {
         let carrotDom = document.createElement('span');
@@ -75,8 +78,9 @@ function gameFnc() {
         bugDom.setAttribute('style', `left : ${randX}%; top : ${randY}%;`)
         ground.appendChild(bugDom);
     };
-    let carrot = document.getElementsByClassName('carrot');
     for (i = 0; i < carrotNum; i++) {
+        carrotNum = 10;
+        document.querySelector('#carrotNum').textContent = carrotNum;
         carrot[i].addEventListener('click', function () {
             this.remove();
             carrotNum = Number(carrotNum);
@@ -87,12 +91,11 @@ function gameFnc() {
 }
 // Execution
 let dimScreen = document.querySelector('#dim-screen');
-let resultBtn = document.querySelector('#resetBtn');
+let resettBtn = document.querySelector('#resetBtn');
 function gameFail() {
-    console.log(123);
     dimScreen.setAttribute('style', 'display : block;');
 }
-resultBtn.addEventListener('click', () => {
+resettBtn.addEventListener('click', () => {
     dimScreen.setAttribute('style', 'display : none;');
     time = 3;
     playBtnClickFnc();
