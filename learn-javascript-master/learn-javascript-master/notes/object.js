@@ -4,8 +4,10 @@
 // a collection of related data and/or functionality.
 // Nearly all objects in JavaScript are instances of Object
 // object = { key : value };
-const obj1 = {}; // 'object literal' syntax
-const obj2 = new Object(); // 'object constructor' syntax
+
+// 1. Literals and properties
+const obj1 = {}; // 'object literal' syntax <= object를 중괄호를 이용해서 만듦.
+const obj2 = new Object(); // 'object constructor' syntax <= object를 new를 이용해 만듦
 
 function print(person) {
   console.log(person.name);
@@ -18,16 +20,18 @@ print(ellie);
 // with JavaScript magic (dynamically typed language)
 // can add properties later
 ellie.hasJob = true;
+// 자바스크립트에서에서는 properties를 나중에 추가할수도 있다. => 다른 언어에서는 거의 가능하지 않고, 사용하지 않는 것을 권장한다.
 console.log(ellie.hasJob);
 
 // can delete properties later
 delete ellie.hasJob;
+// 위와 같이 delete를 이용해 삭제도 가능하다. => 다른 언어에서는 거의 가능하지 않음, 사용을 권장하지 않는다.
 console.log(ellie.hasJob);
 
-// 2. Computed properties
+// 2. Computed properties <= 계산된 properties!
 // key should be always string
 console.log(ellie.name);
-console.log(ellie['name']);
+console.log(ellie['name']); // 아래는 위와 같은 의미이며, 아래처럼 사용하는 것을 computed properties라고 부른다. 사용시에는 반드시 string type으로 명시해야한다.
 ellie['hasJob'] = true;
 console.log(ellie.hasJob);
 

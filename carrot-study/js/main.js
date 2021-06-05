@@ -97,6 +97,6 @@ function gameFail() {
 }
 resettBtn.addEventListener('click', () => {
     dimScreen.setAttribute('style', 'display : none;');
-    time = 3;
+    time = 5;
     playBtnClickFnc();
 })
