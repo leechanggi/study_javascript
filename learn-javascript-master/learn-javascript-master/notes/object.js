@@ -4,10 +4,11 @@
 // a collection of related data and/or functionality.
 // Nearly all objects in JavaScript are instances of Object
 // object = { key : value };
+// object는 key 와 value의 집합체이다.
 
 // 1. Literals and properties
 const obj1 = {}; // 'object literal' syntax <= object를 중괄호를 이용해서 만듦.
-const obj2 = new Object(); // 'object constructor' syntax <= object를 new를 이용해 만듦
+const obj2 = new Object(); // 'object constructor' syntax <= object를 class를 이용해 만듦
 
 function print(person) {
   console.log(person.name);
@@ -15,6 +16,7 @@ function print(person) {
 }
 
 const ellie = { name: 'ellie', age: 4 };
+// javascript에서는 class가 없이도 object를 생성할수 있다.
 print(ellie);
 
 // with JavaScript magic (dynamically typed language)
@@ -31,6 +33,7 @@ console.log(ellie.hasJob);
 // 2. Computed properties <= 계산된 properties!
 // key should be always string
 console.log(ellie.name);
+// 위와 같이 사용할때는 받아올 값을 명확히 할때 사용하며, 아래처럼 사용할때는 ellie의 name 이 명확히 결정되어 있지 않으며, runtime에서 결정될때 아래와 같이 사용한다.
 console.log(ellie['name']); // 아래는 위와 같은 의미이며, 아래처럼 사용하는 것을 computed properties라고 부른다. 사용시에는 반드시 string type으로 명시해야한다.
 ellie['hasJob'] = true;
 console.log(ellie.hasJob);
@@ -61,6 +64,7 @@ console.log('name' in ellie);
 console.log('age' in ellie);
 console.log('random' in ellie);
 console.log(ellie.random);
+
 // 6. for..in vs for..of
 // for (key in obj)
 console.clear();
@@ -95,5 +99,5 @@ console.log(user4);
 const fruit1 = { color: 'red' };
 const fruit2 = { color: 'blue', size: 'big' };
 const mixed = Object.assign({}, fruit1, fruit2);
-console.log(mixed.color);
-console.log(mixed.size);
+console.log(mixed.color); // blue ==> 값이 덮어 씌어진다.
+console.log(mixed.size); // big

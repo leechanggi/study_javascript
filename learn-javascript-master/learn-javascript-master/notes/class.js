@@ -1,7 +1,7 @@
 'use strict';
 // Object-oriendted programming
 // class: template => 붕어빵 틀!! / fields(contructor)와 methods 를 묶어욧!
-// object: instance of a class => 팥 붕처빵!!, 슈크림 붕어빵!! etc.
+// object: instance of a class => 팥 붕어빵!!, 슈크림 붕어빵!! etc.
 // JavaScript classes
 //  - introduced in ES6
 //  - syntactical sugar over prototype-based inheritance
@@ -37,6 +37,7 @@ class User {
   get age() {
     return this._age;
   }
+  // getter 는 값을 return 한다.
 
   set age(value) {
     // if (value < 0) {
@@ -44,6 +45,7 @@ class User {
     // }
     this._age = value < 0 ? 0 : value;
   }
+  // setter 는 값을 설정한다
 }
 
 const user1 = new User('Steve', 'Job', -1);
@@ -72,14 +74,16 @@ class Article {
     console.log(Article.publisher);
   }
 }
-// constructor : class의 객체를 생성하고 초기화 하기 위한 메서드이다.
-// static : class의 정적 매서드를 정의한다.
+// constructor : class의 객체(object)를 생성하고 초기화 하기 위한 메서드이다.
+// static : class의 정적 매서드를 정의한다. 즉 값이나 메소드가 객체를 생성하는 것이 아니라 class자체에 존제한다.
 
 const article1 = new Article(1);
 const article2 = new Article(2);
 console.log(Article.publisher);
 // 위의 Article 부분에 article1, 이나 article2를 삽입할경우 오류가 발생한다. publisher 는 Article 에만 매서드를 정의하였기 때문이다.
 Article.printPublisher();
+// object의 값에 상관없이 class에 공통으로 묶기위해 많이 사용한다.
+
 
 // 5. Inheritance => 상속
 // a way for one class to extend another class.
@@ -99,16 +103,18 @@ class Shape {
   }
 }
 
-class Rectangle extends Shape {} // Shape에 Rectangle 이라는 class 연장.
+class Rectangle extends Shape {
+
+} // Shape에 Rectangle 이라는 class 연장. Rectangle = Shape + something
 class Triangle extends Shape {
   draw() {
     super.draw(); // super(부모)의 매소드를 호출하고난 후에
-    console.log('🔺'); // overwriting 된 내용을 호출한다.
+    console.log('🔺'); // 오버라이딩 된 내용을 호출한다.
   }
   getArea() {
     return (this.width * this.height) / 2;
   }
-
+  // 위와 같이 필요한 함수만 모아서 새로운 값을 만드는 것을 오버라이딩이라고 한다.
   toString() {
     return `Triangle: color: ${this.color}`;
   }
